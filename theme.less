@@ -1,0 +1,174 @@
+@background: #002d28;
+@foreground: #b2cdca;
+
+
+/* Code Styling */
+
+.CodeMirror, .CodeMirror-scroll {
+    background-color: @background;
+    color: @foreground;
+}
+
+.CodeMirror-focused .CodeMirror-activeline-background {
+    background: #eeefff;
+}
+
+
+.show-line-padding .CodeMirror-focused .CodeMirror-activeline-background {
+    box-shadow: inset 15px 0 0 0 #000;
+}
+
+.CodeMirror-focused .CodeMirror-activeline {
+    .CodeMirror-gutter-elt {
+        background: rgba(0, 0, 0, 0.2);
+        color: #fff;
+    }
+    .inline-widget .CodeMirror-gutter-elt {
+        color: #767676;    
+    }
+}
+
+.cm-atom, .cm-string, .cm-string-2, .cm-hr {color: #6be599;}
+.cm-number, .cm-attribute, .cm-plus {color: #ff8197;}
+.cm-def, .cm-property {color: #b266b2;}
+.cm-variable, .cm-variable-2, .cm-variable-3, .cm-operator, .cm-meta, .cm-bracket {color: @foreground;}
+.cm-comment {color: orange;}
+.cm-error, .cm-minus {color: #dc322f;}
+.cm-header {color: #d85896;}
+.cm-link {color: #b77fdb; text-decoration: none;}
+.cm-rangeinfo {color: #6c71c4;}
+.cm-keyword, .cm-qualifier, .cm-builtin, .cm-tag, .cm-quote {color: #7aa7f8;}
+
+
+/* Extra CSS */
+
+.CodeMirror-searching {
+    background-color: #d3cd69;
+    &.searching-current-match {
+        background-color: #faddda;
+    }
+}
+
+.CodeMirror-code {
+    font-family: 'Consolas','SourceCodePro-Medium';
+    font-size: 14px;
+    }
+.CodeMirror-cursor {
+    border-left: 1.5px solid #ff5000 !important;
+}
+
+
+.CodeMirror-gutters {
+   background-color: #005a51;
+    border-right:#7faca8  solid 2px;
+    padding: -2px;
+    margin: -2px;}
+
+.CodeMirror-linenumber {
+    color:#a099ff;
+    
+}
+
+.CodeMirror .CodeMirror-selected {
+    background: #ff2e2c;
+}
+.CodeMirror-focused .CodeMirror-selected {
+    background: #111414;
+}
+
+
+
+.CodeMirror-matchingbracket{
+    background: @foreground;
+    color: 	#35a79c;
+    font-size:16px;
+    padding: 2px;
+    border: solid #009688 1.4px;
+   }
+
+.CodeMirror-nonmatchingbracket {
+  background: #F92672 !important;
+  color: #F8F8F2 !important;
+}
+
+.CodeMirror-matchingtag{
+    color: white;
+    background-color:slategrey;
+}
+
+
+.CodeMirror-overwrite .CodeMirror-cursor {
+    border-left: none !important;
+    border-bottom: 1px solid #fff;
+}
+
+/*
+    CodeMirror's use of descendant selectors for certain styling causes problems when editors are
+    nested because, for items in the inner editor, the left-hand clause in the selector will now
+    match either the actual containing CodeMirror instance *OR* the outer "host" CodeMirror instance.
+    TODO (issue #324): We'll still have problems if editors can be nested more than one level deep,
+    or if any other descendant-selector-driven CM styles can differ between inner & outer editors
+    (potential problem areas include line wrap and coloring theme: basically, anything in codemirror.css
+    that uses a descandant selector where the CSS class name to the left of the space is something
+    other than a vanilla .CodeMirror)
+ */
+.CodeMirror {
+    .CodeMirror {
+        background: transparent;
+    }
+
+    .CodeMirror .CodeMirror-gutters {
+        background: transparent;
+        border-right: none;
+    }
+
+    .CodeMirror .CodeMirror-activeline-background {
+        background: transparent;
+    }
+
+    .CodeMirror .CodeMirror-activeline .CodeMirror-gutter-elt {
+        background: transparent;
+        color: #767676;
+    }
+
+    .CodeMirror-focused .CodeMirror-activeline-background {
+        background: #2f2f2f;
+    }
+
+    .CodeMirror-focused .CodeMirror-activeline {
+        .CodeMirror-gutter-elt {
+            background: rgba(0, 0, 0, 0.2);
+            color: #fff;
+        }
+    }
+}
+
+.CodeMirror-foldgutter-open:after {
+    color: orange;
+}
+.CodeMirror-foldgutter-folded:after {
+     color: #5a0009;
+}
+
+.CodeMirror.over-gutter, .CodeMirror-activeline {
+    .CodeMirror-foldgutter-open:after {
+        color: #b3cde0;
+    }
+}
+
+.CodeMirror-foldmarker {
+      border: grey solid 2px;
+    color: mediumpurple;
+    background-color: #f7ff11;
+}
+
+/* Non-editor styling */
+
+.image-view,
+.not-editor {
+    background-color: @background;
+}
+
+.view-pane .image-view {
+    color: @foreground;
+}
